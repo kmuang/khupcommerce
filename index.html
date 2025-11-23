@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Khup Commerce</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="img/logo.jpeg?v=2">
+    <link rel="shortcut icon" type="image/jpeg" href="img/logo.jpeg?v=2">
+    <link rel="apple-touch-icon" href="img/logo.jpeg?v=2">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="img/logo.jpeg" alt="Khup Commerce" class="logo-image">
+                <span class="logo-text">Khup Commerce</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-page="dashboard">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-page="inventory">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <span>Inventory</span>
+                </a>
+                <a href="#" class="nav-item" data-page="clients">
+                    <i class="fa-solid fa-user-group"></i>
+                    <span>Clients</span>
+                </a>
+                <a href="#" class="nav-item" data-page="employees">
+                    <i class="fa-solid fa-user-doctor"></i>
+                    <span>Employees</span>
+                </a>
+                <a href="#" class="nav-item" data-page="customers">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="#" class="nav-item" data-page="settings">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="#" class="nav-item logout">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <button id="sidebarToggle" class="icon-btn sidebar-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="user-menu">
+                    <button class="icon-btn"><i class="fa-regular fa-bell"></i></button>
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=Retail+Manager&background=0D8ABC&color=fff" alt="User">
+                        <div class="user-info">
+                            <span class="name">Retail Manager</span>
+                            <span class="role">Admin</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="page-content active" id="dashboard-page">
+                <h1 class="page-title">Dashboard Overview</h1>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon sales">
+                            <i class="fa-solid fa-sack-dollar"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Weekly Sales</h3>
+                            <p class="value">$15,000</p>
+                            <span class="trend up"><i class="fa-solid fa-arrow-trend-up"></i> +12%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon inventory">
+                            <i class="fa-regular fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Inventory</h3>
+                            <p class="value">45</p>
+                            <span class="trend up"><i class="fa-solid fa-arrow-trend-up"></i> +5%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon clients">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>New Clients</h3>
+                            <p class="value">12</p>
+                            <span class="trend down"><i class="fa-solid fa-arrow-trend-down"></i> -2%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon patients">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Customers</h3>
+                            <p class="value">1,240</p>
+                            <span class="trend up"><i class="fa-solid fa-arrow-trend-up"></i> +8%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts & Recent Activity -->
+                <div class="content-grid">
+                    <div class="chart-container card">
+                        <div class="card-header">
+                            <div>
+                                <h2>Revenue Overview</h2>
+                                <p class="chart-subtitle">Weekly sales comparison</p>
+                            </div>
+                            <select class="period-select">
+                                <option>This Week</option>
+                                <option>Last Week</option>
+                                <option>Last Month</option>
+                            </select>
+                        </div>
+                        <div class="chart-stats">
+                            <div class="chart-stat-item">
+                                <span class="stat-label">Total Revenue</span>
+                                <span class="stat-value primary">$23,400</span>
+                                <span class="stat-change positive">+15.3%</span>
+                            </div>
+                            <div class="chart-stat-item">
+                                <span class="stat-label">Avg. Daily</span>
+                                <span class="stat-value">$3,343</span>
+                            </div>
+                            <div class="chart-stat-item">
+                                <span class="stat-label">Peak Day</span>
+                                <span class="stat-value">Saturday</span>
+                            </div>
+                        </div>
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+
+                    <div class="recent-sales card">
+                        <div class="card-header">
+                            <h2>Recent Sales</h2>
+                            <a href="#" class="view-all">View All</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="inventory-table">
+                                <thead>
+                                    <tr>
+                                        <th>Customer</th>
+                                        <th>Amount</th>
+                                        <th>Date</th>
+                                        <th>Card</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="customer-info">
+                                                <div class="avatar">JD</div>
+                                                <span>John Doe</span>
+                                            </div>
+                                        </td>
+                                        <td>$245.00</td>
+                                        <td>Nov 22, 2025</td>
+                                        <td><span class="status-badge confirmed">Visa ****4532</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="customer-info">
+                                                <div class="avatar">SS</div>
+                                                <span>Sarah Smith</span>
+                                            </div>
+                                        </td>
+                                        <td>$189.50</td>
+                                        <td>Nov 22, 2025</td>
+                                        <td><span class="status-badge completed">Mastercard ****8901</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="customer-info">
+                                                <div class="avatar">MJ</div>
+                                                <span>Mike Johnson</span>
+                                            </div>
+                                        </td>
+                                        <td>$432.75</td>
+                                        <td>Nov 21, 2025</td>
+                                        <td><span class="status-badge pending">Amex ****2156</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="customer-info">
+                                                <div class="avatar">ED</div>
+                                                <span>Emily Davis</span>
+                                            </div>
+                                        </td>
+                                        <td>$156.20</td>
+                                        <td>Nov 21, 2025</td>
+                                        <td><span class="status-badge completed">Visa ****7823</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inventory Page -->
+            <div class="page-content" id="inventory-page">
+                <h1 class="page-title">Inventory Management</h1>
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Inventory Items</h2>
+                        <button class="btn-primary">Add Item</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="inventory-table">
+                            <thead>
+                                <tr>
+                                    <th>Item Name</th>
+                                    <th>Category</th>
+                                    <th>Quantity</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> Wireless Charger</td>
+                                    <td>Equipment</td>
+                                    <td>45</td>
+                                    <td><span class="status-badge confirmed">In Stock</span></td>
+                                    <td><button class="btn-secondary">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Wireless Earbuds</td>
+                                    <td>Electronics</td>
+                                    <td>85</td>
+                                    <td><span class="status-badge confirmed">In Stock</span></td>
+                                    <td><button class="btn-secondary">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Phone Cases & Covers</td>
+                                    <td>Accessories</td>
+                                    <td>150</td>
+                                    <td><span class="status-badge confirmed">In Stock</span></td>
+                                    <td><button class="btn-secondary">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>USB-C Cables</td>
+                                    <td>Accessories</td>
+                                    <td>120</td>
+                                    <td><span class="status-badge confirmed">In Stock</span></td>
+                                    <td><button class="btn-secondary">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Power Banks</td>
+                                    <td>Electronics</td>
+                                    <td>42</td>
+                                    <td><span class="status-badge pending">Low Stock</span></td>
+                                    <td><button class="btn-secondary">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Screen Protectors</td>
+                                    <td>Accessories</td>
+                                    <td>200</td>
+                                    <td><span class="status-badge confirmed">In Stock</span></td>
+                                    <td><button class="btn-secondary">Edit</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Clients Page -->
+            <div class="page-content" id="clients-page">
+                <h1 class="page-title">Clients Management</h1>
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Client List</h2>
+                        <button class="btn-primary">Add Client</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="inventory-table">
+                            <thead>
+                                <tr>
+                                    <th>Client Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>john@example.com</td>
+                                    <td>(555) 123-4567</td>
+                                    <td><button class="btn-secondary">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Sarah Smith</td>
+                                    <td>sarah@example.com</td>
+                                    <td>(555) 234-5678</td>
+                                    <td><button class="btn-secondary">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Mike Johnson</td>
+                                    <td>mike@example.com</td>
+                                    <td>(555) 345-6789</td>
+                                    <td><button class="btn-secondary">View</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employees Page -->
+            <div class="page-content" id="employees-page">
+                <h1 class="page-title">Employee Management</h1>
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Retail Management and Sales Rep</h2>
+                        <button class="btn-primary">Add Employee</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="inventory-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Role</th>
+                                    <th>Department</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Retail Manager</td>
+                                    <td>Sales Rep</td>
+                                    <td>Devices and Accessories</td>
+                                    <td><span class="status-badge confirmed">Active</span></td>
+                                    <td><button class="btn-secondary">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Jane Cooper</td>
+                                    <td>Retail Assistant</td>
+                                    <td>Devices and Accessories</td>
+                                    <td><span class="status-badge confirmed">Active</span></td>
+                                    <td><button class="btn-secondary">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Tom Brown</td>
+                                    <td>Receptionist</td>
+                                    <td>Administration</td>
+                                    <td><span class="status-badge confirmed">Active</span></td>
+                                    <td><button class="btn-secondary">Edit</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customers Page -->
+            <div class="page-content" id="customers-page">
+                <h1 class="page-title">Customer Overview</h1>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon clients">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Customers</h3>
+                            <p class="value">1,240</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon sales">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>New This Month</h3>
+                            <p class="value">45</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Recent Customers</h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="inventory-table">
+                            <thead>
+                                <tr>
+                                    <th>Customer</th>
+                                    <th>Pet</th>
+                                    <th>Last Visit</th>
+                                    <th>Total Visits</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>Bella</td>
+                                    <td>Oct 24, 2023</td>
+                                    <td>12</td>
+                                </tr>
+                                <tr>
+                                    <td>Sarah Smith</td>
+                                    <td>Max</td>
+                                    <td>Oct 24, 2023</td>
+                                    <td>8</td>
+                                </tr>
+                                <tr>
+                                    <td>Mike Johnson</td>
+                                    <td>Luna</td>
+                                    <td>Oct 23, 2023</td>
+                                    <td>15</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Page -->
+            <div class="page-content" id="settings-page">
+                <h1 class="page-title">Settings</h1>
+                <div class="card">
+                    <div class="card-header">
+                        <h2>General Settings</h2>
+                    </div>
+                    <div style="padding: 2rem;">
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Clinic Name</label>
+                            <input type="text" value="Sales Rep" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 8px;">
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email</label>
+                            <input type="email" value="contact@retailmanagement.com" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 8px;">
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Phone</label>
+                            <input type="tel" value="(555) 123-4567" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 8px;">
+                        </div>
+                        <button class="btn-primary">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
